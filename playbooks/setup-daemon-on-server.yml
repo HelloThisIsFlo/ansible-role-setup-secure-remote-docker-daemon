@@ -9,7 +9,7 @@
 
     - name: "Push the Docker daemon config to Server"
       copy:
-        src: daemon_startup_options.conf
+        src: ../daemon_startup_options.conf
         dest: /etc/systemd/system/docker.service.d/daemon_startup_options.conf
 
     - name: "Restart Docker Daemon service"
@@ -17,3 +17,13 @@
         name: docker
         state: restarted
         daemon_reload: yes
+
+    - name: "Check that the new Options were loaded"
+      shell: ps alx | grep docker
+      register: checkresult
+
+    - name: "Print check result"
+      debug:
+        msg: "{{ checkresult.stdout_lines[0] }}"
+
+
