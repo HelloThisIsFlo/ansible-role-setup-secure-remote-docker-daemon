@@ -6,7 +6,7 @@ function step {
   comment=$2
   cmd=${@:3}
 
-  echo "#!/bin/bash\n\necho \"Running: \\\`$cmd\\\`\"\n\n$cmd\n" > ./step-$1_$2.sh
+  echo "#!/bin/bash\n\necho \"Running: \\\`$cmd\\\`\"\necho\n$cmd\n" > ./step-$1_$2.sh
   sudo chmod +x ./step-$1_$2.sh
 }
 
