@@ -1,0 +1,19 @@
+- hosts: server
+  gather_facts: False
+
+  tasks:
+    - name: "Create Overrides directory for Docker"
+      file:
+        path: /etc/systemd/system/docker.service.d/
+        state: directory
+
+    - name: "Push the Docker daemon config to Server"
+      copy:
+        src: daemon_startup_options.conf
+        dest: /etc/systemd/system/docker.service.d/daemon_startup_options.conf
+
+    - name: "Restart Docker Daemon service"
+      systemd:
+        name: docker
+        state: restarted
+        daemon_reload: yes

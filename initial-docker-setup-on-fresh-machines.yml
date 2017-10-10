@@ -44,7 +44,7 @@
       become: yes
 
     - name: "Disable Docker Daemon"
-      service:
+      systemd:
         name: docker
         state: stopped
         enabled: no
