@@ -1,0 +1,50 @@
+- hosts: all
+  gather_facts: False
+
+  tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+    - name: "Ping the machine"
+      ping: 
+    
+    - name: "Install requirements"
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+        state: latest
+      become: yes
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+
+    - name: "Add docker GPG key"
+      shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+      become: yes
+
+    - name: "Add key fingerprint"
+      shell: "apt-key fingerprint 0EBFCD88"
+      become: yes
+
+    - name: "Add docker repo"
+      shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable"
+      become: yes
+
+    - name: "Install Docker"
+      apt:
+        name: docker-ce
+        update_cache: yes
+        state: latest
+      become: yes
+
+    - name: "Check installation"
+      shell: docker run hello-world
+      become: yes
+
+    - name: "Disable Docker Daemon"
+      service:
+        name: docker
+        state: stopped
+        enabled: no
