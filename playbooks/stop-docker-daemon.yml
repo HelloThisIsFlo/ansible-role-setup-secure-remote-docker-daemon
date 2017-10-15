@@ -1,0 +1,8 @@
+- hosts: all
+
+  tasks:
+    - name: "Disable Docker Daemon"
+      systemd:
+        name: docker
+        state: stopped
+        enabled: no
