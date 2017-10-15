@@ -1,2 +1,2 @@
-server   ansible_host=165.227.166.184  ansible_user=root
-client   ansible_host=165.227.166.215  ansible_user=root 
+server-docker ansible_host=46.101.202.242 ansible_user=root ansible_python_interpreter=/usr/bin/python3
+client-docker ansible_host=207.154.203.251 ansible_user=root ansible_python_interpreter=/usr/bin/python3

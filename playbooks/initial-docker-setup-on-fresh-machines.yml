@@ -1,13 +1,6 @@
 - hosts: all
-  gather_facts: False
 
   tasks:
-    - name: install python 2
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-
-    - name: "Ping the machine"
-      ping: 
-    
     - name: "Install requirements"
       apt:
         name: "{{ item }}"
@@ -21,16 +14,15 @@
         - software-properties-common
 
     - name: "Add docker GPG key"
-      shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
-      become: yes
-
-    - name: "Add key fingerprint"
-      shell: "apt-key fingerprint 0EBFCD88"
-      become: yes
+      apt_key:
+        id: 0EBFCD88
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
 
     - name: "Add docker repo"
-      shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable"
-      become: yes
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu  {{ ansible_lsb.codename }}  stable"
+        state: present
 
     - name: "Install Docker"
       apt:
