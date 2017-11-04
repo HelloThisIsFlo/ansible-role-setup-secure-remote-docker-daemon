@@ -4,7 +4,7 @@
     state: directory
 
 - name: "Push the Docker daemon config to Server"
-  copy:
+  template:
     src: daemon_startup_options.conf
     dest: /etc/systemd/system/docker.service.d/daemon_startup_options.conf
 
