@@ -1,0 +1,11 @@
+- hosts: fast
+
+  tasks:
+    - include_role:
+        name: setup-remote-docker-socket
+      vars:
+        rootca_certificate: "{{ lookup('file', '../certificates/rootca-certificate.pem') }}"
+        server_certificate: "{{ lookup('file', '../certificates/server/server-certificate.pem') }}"
+        server_privatekey: "{{ lookup('file', '../certificates/server/server-privatekey.pem') }}"
+
+

@@ -1,0 +1,19 @@
+- name: "Create Certificates directory for Docker"
+  file:
+    path: "{{ certificates_dir }}"
+    state: directory
+
+- name: "Copy Private Key to Server"
+  copy:
+    content: "{{ server_privatekey }}"
+    dest: "{{ certificates_dir }}/server-privatekey.pem"
+
+- name: "Copy Certificate to Server"
+  copy:
+    content: "{{ server_certificate }}"
+    dest: "{{ certificates_dir }}/server-certificate.pem"
+
+- name: "Copy RootCA to Server (For client verification)"
+  copy:
+    content: "{{ rootca_certificate }}"
+    dest: "{{ certificates_dir }}/rootca-certificate.pem"

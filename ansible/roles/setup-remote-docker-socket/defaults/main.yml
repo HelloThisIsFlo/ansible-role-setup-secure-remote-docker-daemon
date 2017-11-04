@@ -1,0 +1,8 @@
+# Required parameters
+rootca_certificate: ""
+server_certificate: ""
+server_privatekey: ""
+
+# Where to store certificates on the remote machine
+# TODO: Pass this in the daemon config file (use template)
+certificates_dir: "/docker-tls"

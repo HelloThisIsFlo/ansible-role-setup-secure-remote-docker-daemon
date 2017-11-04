@@ -27,7 +27,3 @@
     update_cache: yes
     state: latest
   become: yes
-
-- name: "Check installation"
-  shell: docker run hello-world
-  become: yes
