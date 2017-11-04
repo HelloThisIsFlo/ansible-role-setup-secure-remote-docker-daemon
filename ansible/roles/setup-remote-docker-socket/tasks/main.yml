@@ -1,0 +1,7 @@
+- name: "Ensure this role is running on Ubuntu/Debian"
+  assert:
+    that: ansible_os_family == "Debian"
+    msg: "This role only works for Ubuntu/Debian !!"
+
+- name: "Install Docker"
+  include_tasks: install_docker.yml
