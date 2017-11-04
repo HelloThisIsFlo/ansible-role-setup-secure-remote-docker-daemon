@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Florian Kempenich
+  description: Setup and secure a Docker daemon remotely accessible via TLS
+  # company: your company (optional)
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - docker
+    - tls
+    - remote
+    - socket
+    - secure
+    - certificates
+    - ssl
+
+dependencies: []
