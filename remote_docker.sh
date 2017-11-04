@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Certificates location
-CLIENT_CERTIFICATE=./certificates/client/client-certificate.pem
-CLIENT_PRIVATEKEY=./certificates/client/client-privatekey.pem
-ROOTCA_CERTIFICATE=./certificates/rootca-certificate.pem
+CERT_DIR=/home/shockn745/config-in-the-cloud/secrets/tlscertificates-awesometeam
+CLIENT_CERTIFICATE=$CERT_DIR/client/client-certificate.pem
+CLIENT_PRIVATEKEY=$CERT_DIR/client/client-privatekey.pem
+ROOTCA_CERTIFICATE=$CERT_DIR/rootca-certificate.pem
 
 # Remote Host
 HOST=floriankempenich.com

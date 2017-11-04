@@ -1,11 +1,14 @@
-- hosts: fast
+- hosts: sandbox
+
+  vars:
+    certdir: "/home/shockn745/config-in-the-cloud/secrets/tlscertificates-awesometeam"
 
   tasks:
     - include_role:
         name: setup-remote-docker-socket
       vars:
-        rootca_certificate: "{{ lookup('file', '../certificates/rootca-certificate.pem') }}"
-        server_certificate: "{{ lookup('file', '../certificates/server/server-certificate.pem') }}"
-        server_privatekey: "{{ lookup('file', '../certificates/server/server-privatekey.pem') }}"
+        rootca_certificate: "{{ lookup('file', '{{ certdir }}/rootca-certificate.pem') }}"
+        server_certificate: "{{ lookup('file', '{{ certdir }}/server/server-certificate.pem') }}"
+        server_privatekey: "{{ lookup('file',  '{{ certdir }}/server/server-privatekey.pem') }}"
 
 
