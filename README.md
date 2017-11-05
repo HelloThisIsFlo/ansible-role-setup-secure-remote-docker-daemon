@@ -35,7 +35,7 @@ In that example certificates/privkey are read from files using the `lookup` meth
 
       tasks:
         - include_role:
-            name: setup-secure-remote-docker-daemon
+            name: shockn745.setup-secure-remote-docker-daemon
           vars:
             rootca_certificate: "{{ lookup('file', '{{ certdir }}/rootca-certificate.pem') }}"
             server_certificate: "{{ lookup('file', '{{ certdir }}/server/server-certificate.pem') }}"
