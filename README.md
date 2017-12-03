@@ -48,4 +48,4 @@ MIT
 
 ## Author Information
 
-Follow my work on [The Professional Beginner](https://professionalbeginner.com)
+Follow my work on my blog: [Florian Kempenich](https://floriankempenich.com)
