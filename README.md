@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FlorianKempenich/setup-secure-remote-docker-daemon.svg?branch=master)](https://travis-ci.org/FlorianKempenich/setup-secure-remote-docker-daemon) [![Ansible Role](https://img.shields.io/ansible/role/22557.svg)](https://galaxy.ansible.com/FlorianKempenich/setup-secure-remote-docker-daemon/)
+
 # Ansible role: `setup-secure-remote-docker-daemon`
 
 Setup and secure a Docker daemon remotely accessible via TLS.
