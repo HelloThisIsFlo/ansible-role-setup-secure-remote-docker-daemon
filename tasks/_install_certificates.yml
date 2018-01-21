@@ -2,7 +2,6 @@
   file:
     path: "{{ certificates_dir }}"
     state: directory
-  become: yes
 
 - name: "Copy Private Key to Server"
   copy:
