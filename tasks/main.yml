@@ -13,6 +13,7 @@
 
 - name: "Install Docker"
   include_tasks: _install_docker.yml
+  become: yes
 
 - name: "Install Certificates"
   include_tasks: _install_certificates.yml
