@@ -1,13 +1,12 @@
 - name: "Install requirements"
   apt:
-    name: "{{ item }}"
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
     update_cache: yes
     state: latest
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
   become: yes
 
 - name: "Add docker GPG key"
