@@ -20,4 +20,5 @@ galaxy_info:
     - certificates
     - ssl
 
-dependencies: []
+dependencies:
+    - { role: TOOCS.docker }
