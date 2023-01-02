@@ -12,7 +12,8 @@
     - server_privatekey
 
 - name: "Install Docker"
-  include_tasks: _install_docker.yml
+  include_role:
+    name: TOOCS.docker
 
 - name: "Install Certificates"
   include_tasks: _install_certificates.yml
